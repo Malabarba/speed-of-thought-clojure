@@ -96,10 +96,15 @@ usability, return nil if word at point has a single letter and is
 not after a `('."
   (save-excursion
     (ignore-errors
-      (forward-char -1)
-      (and (looking-at-p (rx alpha))
-           (progn (forward-char -1)
-                  (looking-at-p (rx (any alpha "("))))))))
+      (and (not (string-match (rx (syntax symbol)) (string last-command-event)))
+           (not (let ((orig (point)))
+                  (save-excursion
+                    (beginning-of-defun)
+                    (nth 3 (parse-partial-sexp (point) orig)))))
+           (string-match (rx alpha) (string (char-before)))
+           (or (and (< (skip-chars-backward (rx word)) -1)
+                    (= ?\s (char-before)))
+               (string-match (rx (not (syntax symbol))) (string (char-before))))))))
 
 (defvar sotclojure--function-table (make-hash-table :test #'equal)
   "Table where function abbrev expansions are stored.")
