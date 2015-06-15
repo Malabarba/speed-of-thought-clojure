@@ -182,20 +182,15 @@ See `sotclojure-define-function-abbrev'."
   (let ((r (point)))
     (skip-chars-backward (rx alnum))
     (let* ((name (buffer-substring (point) r))
-           (expansion (gethash name sotclojure--function-table)))
-      (delete-region (point) r)
-      (insert expansion)
-      (when (string-match "\\$" expansion)
-        (setq sotlisp--needs-moving t)))
-    ;; Inform `expand-abbrev' that `self-insert-command' should not
-    ;; trigger, by returning non-nil on SPC.
-    (when (sotlisp--whitespace-p)
-      ;; And maybe move out of closing paren if expansion ends with $.
-      (when (eq (char-before) ?$)
-        (delete-char -1)
-        (setq sotlisp--needs-moving nil)
-        (sotlisp--maybe-skip-closing-paren))
-      t)))
+           (expansion (gethash name sotclojure--function-table nil)))
+      (if (not expansion)
+          (progn (goto-char r) nil)
+        (delete-region (point) r)
+        (insert expansion)
+        (when (string-match "\\$" expansion)
+          (setq sotlisp--needs-moving t))
+        ;; Must be last.
+        (sotlisp--post-expansion-cleanup)))))
 
 (put 'sotclojure--expand-function 'no-self-insert t)
 
