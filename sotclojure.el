@@ -105,7 +105,9 @@ not after a `('."
            (string-match (rx alpha) (string (char-before)))
            (or (and (< (skip-chars-backward (rx word)) -1)
                     (= ?\s (char-before)))
-               (string-match (rx (not (syntax symbol))) (string (char-before))))))))
+               (and (string-match (rx (not (syntax symbol)))
+                                  (string (char-before)))
+                    (not (sotlisp--whitespace-char-p (char-before)))))))))
 
 (defvar sotclojure--function-table (make-hash-table :test #'equal)
   "Table where function abbrev expansions are stored.")
