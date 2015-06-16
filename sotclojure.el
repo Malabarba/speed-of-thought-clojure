@@ -97,6 +97,7 @@ not after a `('."
   (save-excursion
     (ignore-errors
       (and (not (string-match (rx (syntax symbol)) (string last-command-event)))
+           (sotlisp--code-p)
            (not (let ((orig (point)))
                   (save-excursion
                     (beginning-of-defun)
