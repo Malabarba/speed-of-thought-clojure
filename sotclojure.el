@@ -119,7 +119,7 @@ not after a `('."
     ("as"  . "assoc ")
     ("ai"  . "assoc-in ")
     ("b"  . "binding [$]")
-    ("c"   . "concat ")
+    ("c"   . "count ")
     ("ca"  . ":as ")
     ("ck"  . ":keys [$]")
     ("co"  . ":only [$]")
