@@ -4,8 +4,8 @@
 
 ;; Author: Artur Malabarba <emacs@endlessparentheses.com>
 ;; Keywords: convenience, clojure
-;; Version: 0.1
 ;; Package-Requires: ((emacs "24.1") (clojure-mode "4.0.0") (cider "0.8") (sotlisp "1.4"))
+;; Version: 1.0
 ;; URL: https://github.com/Malabarba/speed-of-thought-clojure
 
 ;; This program is free software; you can redistribute it and/or modify
