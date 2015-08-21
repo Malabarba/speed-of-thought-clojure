@@ -4,8 +4,8 @@
 
 ;; Author: Artur Malabarba <emacs@endlessparentheses.com>
 ;; Keywords: convenience, clojure
-;; Package-Requires: ((emacs "24.1") (clojure-mode "4.0.0") (cider "0.8") (sotlisp "1.0"))
 ;; Version: 0.1
+;; Package-Requires: ((emacs "24.1") (clojure-mode "4.0.0") (cider "0.8") (sotlisp "1.4"))
 ;; URL: https://github.com/Malabarba/speed-of-thought-clojure
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -247,8 +247,9 @@ With a prefix argument, defines a `defmacro' instead of a `defun'."
 ;;;###autoload
 (define-minor-mode sotclojure-mode
   nil nil " SoT"
-  '(([M-return] . sotlisp-newline-and-parentheses)
+  `(([M-return] . sotlisp-newline-and-parentheses)
     ([C-return] . sotlisp-downlist-newline-and-parentheses)
+    (,(kbd "C-M-;") . sotlisp-comment-or-uncomment-sexp)
     ("\C-cf"    . sotclojure-find-or-define-function)))
 
 ;;;###autoload
