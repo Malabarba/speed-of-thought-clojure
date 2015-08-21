@@ -72,7 +72,7 @@
 ;;   electric-pair-mode), if you write:
 ;;
 ;;   ┌────
-;;   │ (wl SPC {ck SPC x C-f C-RET (a SPC (sp SPC y C-f SPC f SPC y
+;;   │ (wl SPC {ck SPC x C-f C-RET (a SPC (np SPC y C-f SPC f SPC y
 ;;   └────
 ;;
 ;;   You get
