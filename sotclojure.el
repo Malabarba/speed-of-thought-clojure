@@ -128,6 +128,7 @@ not after a `('."
     ("df"  . "defn $ []\n  ")
     ("dv"  . "def $ t\n  \"\"")
     ("ds"  . "doseq [it $]")
+    ("ep"  . "empty? ")
     ("f"   . "first ")
     ("fp"  . "fn? ")
     ("fn"  . "fn [$]")
