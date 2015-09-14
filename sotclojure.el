@@ -113,6 +113,7 @@ not after a `('."
   "Table where function abbrev expansions are stored.")
 
 
+;;; Abbrev definitions
 (defconst sotclojure--default-function-abbrevs
   '(
     ("a"   . "and ")
@@ -130,23 +131,28 @@ not after a `('."
     ("ds"  . "doseq [it $]")
     ("ep"  . "empty? ")
     ("f"   . "first ")
+    ("fi"  . "filter ")
     ("fp"  . "fn? ")
     ("fn"  . "fn [$]")
     ("i"   . "into ")
     ("ip"  . "instance? ")
+    ("idp" . "identical? ")
     ("il"  . "if-let [$]")
     ("in"  . "if-not ")
+    ("l" . "let [$]")
     ("let" . "let [$]")
     ("loop" . "loop [$]")
     ("lp"  . "list? ")
     ("m"   . "map ")
+    ("mc"  . "mapcat ")
     ("mp"  . "map? ")
     ("n"   . "not ")
     ("np"  . "number? ")
     ("pl"  . "println ")
     ("pn"  . "println ")
-    ("r"   . "rest ")
+    ("r"   . "reduce ")
     ("rb"  . "reset! ")
+    ("re"  . "remove ")
     ("s"   . "str ")
     ("sb"  . "swap! ")
     ("sp"  . "seq? ")
@@ -245,6 +251,7 @@ With a prefix argument, defines a `defmacro' instead of a `defun'."
             (insert " " name "\n  \"\"\n  [])\n\n")))))))
 
 
+;;; Mode definition
 ;;;###autoload
 (define-minor-mode sotclojure-mode
   nil nil " SoT"
