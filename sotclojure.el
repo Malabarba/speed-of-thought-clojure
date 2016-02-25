@@ -5,7 +5,7 @@
 ;; Author: Artur Malabarba <emacs@endlessparentheses.com>
 ;; Keywords: convenience, clojure
 ;; Package-Requires: ((emacs "24.1") (clojure-mode "4.0.0") (cider "0.8") (sotlisp "1.3"))
-;; Version: 0.9
+;; Version: 1.1
 ;; URL: https://github.com/Malabarba/speed-of-thought-clojure
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -272,7 +272,10 @@ With a prefix argument, defines a `defmacro' instead of a `defun'."
   `(([M-return] . sotlisp-newline-and-parentheses)
     ([C-return] . sotlisp-downlist-newline-and-parentheses)
     (,(kbd "C-M-;") . sotlisp-comment-or-uncomment-sexp)
-    ("\C-cf"    . sotclojure-find-or-define-function)))
+    ("\C-cf"    . sotclojure-find-or-define-function))
+  (if sotclojure-mode
+      (abbrev-mode 1)
+    (kill-local-variable 'abbrev-mode)))
 
 ;;;###autoload
 (defun sotclojure-turn-on-everywhere ()
