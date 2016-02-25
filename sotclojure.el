@@ -117,6 +117,8 @@ not after a `('."
 (defconst sotclojure--default-function-abbrevs
   '(
     ("a"   . "and ")
+    ("am"  . "alter-meta! ")
+    ("amb"  . "alter-meta! ")
     ("as"  . "assoc ")
     ("ai"  . "assoc-in ")
     ("b"   . "binding [$]")
@@ -169,6 +171,8 @@ not after a `('."
     ("syp" . "symbol? ")
     ("t"   . "throw (Exception. \"$\")")
     ("tt"  . "testing \"$\"")
+    ("u"  . "update ")
+    ("ui"  . "update-in $ []")
     ("vm"  . "vary-meta ")
     ("vp"  . "vector? ")
     ("w"   . "when ")
