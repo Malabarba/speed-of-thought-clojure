@@ -82,13 +82,12 @@
 ;;   │            (and (number? y) (first y))])
 ;;   └────
 ;;
+;;; Code:
 
 (require 'sotlisp)
 (require 'clojure-mode)
 (require 'cider)
 
-
-;;; Code:
 (defun sotclojure--function-p ()
   "Non-nil if point is at reasonable place for a function name.
 In clojure, that is basically anywhere.  Still, for the sake of
@@ -118,13 +117,13 @@ not after a `('."
   '(
     ("a"   . "and ")
     ("am"  . "alter-meta! ")
-    ("amb"  . "alter-meta! ")
+    ("amb" . "alter-meta! ")
     ("as"  . "assoc ")
     ("ai"  . "assoc-in ")
     ("b"   . "binding [$]")
     ("c"   . "count ")
     ("ca"  . ":as ")
-    ("ck"  . ":keys [$]")
+    ("ck"  . ":keys [$] ")
     ("co"  . ":or {$}")
     ("con" . ":only [$]")
     ("cp"  . "coll? ")
@@ -133,6 +132,7 @@ not after a `('."
     ("cy"  . ":syms [$]")
     ("di"  . "dissoc ")
     ("df"  . "defn $ []\n  ")
+    ("dm"  . "defmacro $\n  \"\"\n  []\n  ")
     ("dv"  . "def $ t\n  \"\"")
     ("ds"  . "doseq [it $]")
     ("dt"  . "deftest ")
@@ -145,7 +145,6 @@ not after a `('."
     ("ip"  . "instance? ")
     ("idp" . "identical? ")
     ("il"  . "if-let [$]")
-    ("in"  . "if-not ")
     ("kp"  . "keyword? ")
     ("l"   . "let [$]")
     ("let" . "let [$]")
