@@ -5,7 +5,7 @@
 ;; Author: Artur Malabarba <emacs@endlessparentheses.com>
 ;; Keywords: convenience, clojure
 ;; Package-Requires: ((emacs "24.1") (clojure-mode "4.0.0") (cider "0.8") (sotlisp "1.3"))
-;; Version: 1.1
+;; Version: 1.2
 ;; URL: https://github.com/Malabarba/speed-of-thought-clojure
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -118,9 +118,11 @@ not after a `('."
     ("a"   . "and ")
     ("am"  . "alter-meta! ")
     ("amb" . "alter-meta! ")
-    ("as"  . "assoc ")
     ("ai"  . "assoc-in ")
+    ("as"  . "assoc ")
+    ("ap"  . "associative? ")
     ("b"   . "binding [$]")
+    ("bl"  . "butlast ")
     ("c"   . "count ")
     ("ca"  . ":as ")
     ("ck"  . ":keys [$] ")
@@ -130,10 +132,11 @@ not after a `('."
     ("cr"  . ":refer [$]")
     ("cs"  . ":strs [$]")
     ("cy"  . ":syms [$]")
+    ("d"  . "def ")
     ("di"  . "dissoc ")
     ("df"  . "defn $ []\n  ")
     ("dm"  . "defmacro $\n  \"\"\n  []\n  ")
-    ("dv"  . "def $ t\n  \"\"")
+    ("dv"  . "def $ nil\n  \"\"")
     ("ds"  . "doseq [it $]")
     ("dt"  . "deftest ")
     ("ep"  . "empty? ")
@@ -141,6 +144,9 @@ not after a `('."
     ("fi"  . "filter ")
     ("fp"  . "fn? ")
     ("fn"  . "fn [$]")
+    ("g"   . "get ")
+    ("gb"  . "group-by ")
+    ("gi"  . "get-in ")
     ("i"   . "into ")
     ("ip"  . "instance? ")
     ("idp" . "identical? ")
