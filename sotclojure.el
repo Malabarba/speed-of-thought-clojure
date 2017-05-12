@@ -87,6 +87,7 @@
 (require 'sotlisp)
 (require 'clojure-mode)
 (require 'cider)
+(require 'sotclojure-on)
 
 (defun sotclojure--function-p ()
   "Non-nil if point is at reasonable place for a function name.
@@ -281,35 +282,6 @@ With a prefix argument, defines a `defmacro' instead of a `defun'."
   (if sotclojure-mode
       (abbrev-mode 1)
     (kill-local-variable 'abbrev-mode)))
-
-;;;###autoload
-(defun sotclojure-turn-on-everywhere ()
-  "Call-once function to turn on sotclojure everywhere.
-Calls `sotclojure-mode' on all `clojure-mode' buffers, and sets
-up a hook and abbrevs."
-  (add-hook 'clojure-mode-hook #'sotclojure-mode)
-  (sotclojure-define-all-abbrevs)
-  (mapc (lambda (b)
-          (with-current-buffer b
-            (when (derived-mode-p 'clojure-mode)
-              (sotclojure-mode 1))))
-        (buffer-list)))
-
-(defun sotclojure-turn-off-everywhere ()
-  "Call-once function to turn off sotclojure everywhere.
-Removes `sotclojure-mode' from all `clojure-mode' buffers, and
-removes hooks and abbrevs."
-  (remove-hook 'clojure-mode-hook #'sotclojure-mode)
-  (sotclojure-erase-all-abbrevs)
-  (mapc (lambda (b)
-          (with-current-buffer b
-            (when (derived-mode-p 'clojure-mode)
-              (sotclojure-mode -1))))
-        (buffer-list)))
-
-;;;###autoload
-(eval-after-load 'sotlisp
-  '(speed-of-thought-hook-in #'sotclojure-turn-on-everywhere #'sotclojure-turn-off-everywhere))
 
 (provide 'sotclojure)
 ;;; sotclojure.el ends here
