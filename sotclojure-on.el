@@ -25,7 +25,8 @@
 Calls `sotclojure-mode' on all `clojure-mode' buffers, and sets
 up a hook and abbrevs."
   (add-hook 'clojure-mode-hook #'sotclojure-mode)
-  (sotclojure-define-all-abbrevs)
+  (eval-after-load 'sotclojure
+    '(sotclojure-define-all-abbrevs))
   (mapc (lambda (b)
           (with-current-buffer b
             (when (derived-mode-p 'clojure-mode)
@@ -37,7 +38,8 @@ up a hook and abbrevs."
 Removes `sotclojure-mode' from all `clojure-mode' buffers, and
 removes hooks and abbrevs."
   (remove-hook 'clojure-mode-hook #'sotclojure-mode)
-  (sotclojure-erase-all-abbrevs)
+  (eval-after-load 'sotclojure
+    '(sotclojure-erase-all-abbrevs))
   (mapc (lambda (b)
           (with-current-buffer b
             (when (derived-mode-p 'clojure-mode)
