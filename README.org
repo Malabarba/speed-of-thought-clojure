@@ -47,7 +47,7 @@ With the above (assuming you use something like paredit or
 electric-pair-mode), if you write:
 
 #+BEGIN_SRC text
-(wl SPC {ck SPC x C-f C-RET (a SPC (np SPC y C-f SPC f SPC y
+(wl SPC {ck SPC x C-f C-RET (a SPC (np SPC y C-f SPC (f SPC y
 #+END_SRC
 
 You get
