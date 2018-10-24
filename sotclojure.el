@@ -264,7 +264,7 @@ With a prefix argument, defines a `defmacro' instead of a `defun'."
     (unless (and name (sotlisp--find-in-buffer "(def[^ ]* " name))
       (let ((dict (cider-var-info name)))
         (if (and dict (> (length dict) 10))
-            (cider--find-var name)
+            (cider-find-var name)
           (sotlisp--beginning-of-defun)
           (insert "(def" (if prefix "macro" "n"))
           (save-excursion
